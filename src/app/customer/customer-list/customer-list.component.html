@@ -1,0 +1,68 @@
+<div class="main-content">
+    <div class="page-content">
+
+        <!-- Page-Title -->
+        <div class="page-title-box">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="page-title mb-1">قائمة العملاء</h4>
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);"> ادارة العملاء</a></li>
+                            <li class="breadcrumb-item active"> قائمة العملاء </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+
+        <div class="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <!-- Showing customers data -->
+                                    <table
+                                        class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">customer Id</th>
+                                                <th scope="col">customer name</th>
+                                                <th scope="col">Email</th>
+                                                <th class="text-center" scope="col">Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- *ngFor loop iterates over customer array and fetch the customer's data -->
+                                            <!-- paginate pipe will add pagination in customer's list, it won't show if items are less then 7 -->
+                                            <tr
+                                                *ngFor="let customer of customers">
+                                                <th scope="row">{{customer.key}}</th>
+                                                <td>{{customer.name}}</td>
+                                                <td>{{customer.email}}</td>
+                                                <td class="text-center action-block">
+                                                    <!-- routerLink="/edit-customer/{{customer.$key}}" is refered to { path: 'edit-customer/:id', component: EditcustomerComponent } in app-routing.moudles.ts -->
+                                                    <i class="far fa-edit"
+                                                        routerLink="/edit-customer/{{customer.$key}}"></i>
+                                                        <a class="far fa-trash-alt" (click)="deleteCustomer(customer)"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+            </div>
+            <!-- end container-fluid -->
+        </div>
+        <!-- end page-content-wrapper -->
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "aqsat-8e820": {
+      "hosting": {
+        "aqsat": [
+          "aqsat-8e820"
+        ]
+      }
+    }
+  }
+}
